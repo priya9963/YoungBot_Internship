@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<body class="clock" onload="startTime()">
+    <h1>Indian Standard Time</h1>
+<div class="heading">
+<h2>Digital CLock </h2>
+</div>
+<div id="txt"></div>
+
+<script>
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
+<style>
+/* Center the body content */
+body.clock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #282c34; /* Dark background */
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+/* Styling for the heading */
+.heading {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.heading h2 {
+    font-size: 36px;
+    margin: 0;
+    color: #61dafb; /* Light blue color */
+}
+
+/* Styling for the digital clock display */
+#txt {
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    letter-spacing: 5px;
+}
+
+
+</style>
+</body>
+</html>
